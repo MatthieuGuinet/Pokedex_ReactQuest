@@ -1,13 +1,10 @@
 export default function PokemonCard() {
-    const pokemon = pokemonList[1]
+    const pokemon = pokemonList[0]
+    const igmPokemon = pokemon.imgSrc ? (<img src={pokemon.imgSrc} alt={pokemon.name} />) : (<p>???</p>)
 
     return (
         <figure className = 'card'>
-            {pokemon.imgSrc ? (
-            <img
-            src={pokemon.imgSrc}
-            alt={pokemon.name}
-            />) : <p>???</p>}
+            {igmPokemon}
             <figcaption>{pokemon.name}</figcaption>
         </figure>
     )
