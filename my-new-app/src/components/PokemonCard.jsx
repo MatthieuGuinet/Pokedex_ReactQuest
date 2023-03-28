@@ -3,11 +3,12 @@ export default function PokemonCard() {
 
     return (
         <figure className = 'card'>
+            {pokemon.imgSrc ? (
             <img
             src={pokemon.imgSrc}
             alt={pokemon.name}
-            />
-            <figcaption>{pokemon.name === 'bulbasaur' ? pokemon.name : <p>???</p>}</figcaption>
+            />) : <p>???</p>}
+            <figcaption>{pokemon.name}</figcaption>
         </figure>
     )
 }
