@@ -43,7 +43,6 @@ PokemonCard.propTypes = {
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0)
   const pokemon = pokemonList[pokemonIndex]
-  const pokemonListLength = pokemonList.length;
 
   const handleClickNext = () => {
     setPokemonIndex(pokemonIndex + 1)
@@ -54,21 +53,26 @@ function App() {
   }
 
   return (
+    <>
     <div>
     <PokemonCard 
     pokemon = {pokemon}
     />
-    {pokemonIndex > 0 ? 
-    <ButtonPokemonPrevious
-    onClickP = {handleClickPrevious}
-    /> :
-    null}
-    {pokemonIndex < pokemonList.length -1 ? 
-    <ButtonPokemonNext
-    onClickN ={handleClickNext}
-    /> :
-    null}
     </div>
+    <navbar className="navbar">
+      {pokemonIndex > 0 ? 
+      <ButtonPokemonPrevious
+      onClickP = {handleClickPrevious}
+      /> :
+      <div></div>}
+      {pokemonIndex < pokemonList.length -1 ? 
+      <ButtonPokemonNext
+      onClickN ={handleClickNext}
+      /> :
+      <div></div>}
+    </navbar>
+    </>
+    
   )
 }
 
