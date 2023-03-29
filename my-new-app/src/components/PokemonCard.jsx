@@ -1,5 +1,5 @@
 function PokemonCard({pokemon}) {
-    const {name, imgSrc} = pokemon[1]
+    const {name, imgSrc} = pokemon
     const igmPokemon = imgSrc ? (<img src={imgSrc} alt={name} />) : (<p>???</p>)
     
     return (
