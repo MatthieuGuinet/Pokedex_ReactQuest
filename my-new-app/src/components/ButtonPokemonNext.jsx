@@ -1,6 +1,8 @@
 function ButtonPokemonNext({onClickN}) { 
 
-    return (<button onClick={onClickN}> Next Pokemon </button>)
+    return (<button onClick={onClickN}>
+        Next Pokemon
+        </button>)
 
 }
 

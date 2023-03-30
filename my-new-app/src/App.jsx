@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {useState} from "react";
 import ButtonPokemonPrevious from './components/ButtonPokemonPrevious';
 import ButtonPokemonNext from './components/ButtonPokemonNext';
+import { useEffect } from "react";
 
 const pokemonList = [
   {
@@ -34,13 +35,19 @@ const pokemonList = [
 PokemonCard.propTypes = {
   pokemonList: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string.isRequired,
-  })).isRequired,
+    imgSrc: PropTypes.string,
+  })),
 }
 
-
-
 function App() {
+
+  useEffect(
+    () => {
+      alert("Welcome pokemon trainer 👨‍💻 !");
+    },
+    []
+  );
+
   const [pokemonIndex, setPokemonIndex] = useState(0)
   const pokemon = pokemonList[pokemonIndex]
 
@@ -51,15 +58,20 @@ function App() {
   const handleClickPrevious = () => {
     setPokemonIndex(pokemonIndex - 1)
   }
+  
+  const handlePikaEvent = () => {
+    pokemonList[pokemonIndex].name === 'pikachu' ? alert("pika pikachu !!!") : null
+  }
 
   return (
     <>
     <div>
     <PokemonCard 
     pokemon = {pokemon}
+    pikaEvent = {handlePikaEvent}
     />
     </div>
-    <navbar className="navbar">
+    <nav className="navbar">
       {pokemonIndex > 0 ? 
       <ButtonPokemonPrevious
       onClickP = {handleClickPrevious}
@@ -70,7 +82,7 @@ function App() {
       onClickN ={handleClickNext}
       /> :
       <div></div>}
-    </navbar>
+    </nav>
     </>
     
   )
