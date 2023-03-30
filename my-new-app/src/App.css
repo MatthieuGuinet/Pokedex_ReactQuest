@@ -15,3 +15,13 @@
   justify-content: space-between;
   width: 60%;
 }
+
+
+ul {
+  padding:0;
+  display:flex;
+  justify-content: space-between;
+}
+li {
+  list-style:none;
+}
